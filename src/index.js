@@ -19,7 +19,7 @@ const options = {
 
 const observer = new IntersectionObserver(onPagination, options);
 
-form.addEventListener('change', onInput);
+//form.addEventListener('change', onInput);
 form.addEventListener('submit', onSubmit);
 
 async function addGallerySubmit() {
@@ -63,7 +63,7 @@ function onSubmit(evt) {
   gallery.innerHTML = '';
 
 
-  if (!evt.target.elements.searchQuery.value) {
+  if (!evt.target.elements.searchQuery.value.trim()) {
     Notiflix.Notify.failure('Please, enter a search query');
   } else {
     addGallerySubmit();
