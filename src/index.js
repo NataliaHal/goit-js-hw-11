@@ -1,4 +1,3 @@
-//import axios, { isCancel, AxiosError } from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getGallery, totalPages } from'./api';
@@ -43,15 +42,18 @@ async function addGalleryPag() {
     createGalleryItem(images);
     lightbox.refresh();
 
-    if (page > totalPages) {
-      Notiflix.Notify.warning(
-        "We're sorry, but you've reached the end of search results."
-      );
-    }
+if (page >= gallery.children.length) {
+  Notiflix.Notify.success(
+    "We're sorry, but you've reached the end of search results."
+  );
+  observer.disconnect();
+}
   } catch (error) {
     console.error(error);
   }
 }
+
+
 
 function onInput(evt) {
   query = evt.target.value.trim();
@@ -102,9 +104,8 @@ function onPagination(entries, observer) {
 }
 
 export { gallery };
+  
+  
+  
+  
 
-if (page > gallery.children.length) {
-  Notiflix.Notify.success(
-    "We're sorry, but you've reached the end of search results."
-  );
-}
