@@ -1,3 +1,4 @@
+//import axios, { isCancel, AxiosError } from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { getGallery, totalPages } from'./api';
@@ -19,7 +20,7 @@ const options = {
 
 const observer = new IntersectionObserver(onPagination, options);
 
-//form.addEventListener('change', onInput);
+form.addEventListener('change', onInput);
 form.addEventListener('submit', onSubmit);
 
 async function addGallerySubmit() {
