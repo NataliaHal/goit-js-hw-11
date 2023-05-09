@@ -102,3 +102,9 @@ function onPagination(entries, observer) {
 }
 
 export { gallery };
+
+if (page > gallery.children.length) {
+  Notiflix.Notify.success(
+    "We're sorry, but you've reached the end of search results."
+  );
+}
